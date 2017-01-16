@@ -1,0 +1,34 @@
+public class SudokuSolver
+{
+
+	static Set empty = new Set(9);
+	static Set fullSet;
+	static int [][] board;
+	static Set [][] allowedSets;
+
+	public static void main(String [] args)
+	{
+		initializeBoard();
+
+	}
+
+	/**
+	 * Create board array and create and initialize sets for the
+	 * board squares.
+	**/
+	public static void initializeBoard()
+	{
+		board = new int[9][9];
+		allowedSets = new Set[9][9];
+
+		Set fullSet = new Set(9);
+		for(int i = 1; i <= 9; i++)
+			fullSet.insert(i);
+
+		// Since no moves have been made, any number can go anywhere.
+		// Start the sets out with all possibilities.
+		for(int i = 0; i < 9; i++)
+			for( int j = 0; j < 9; j++)
+				allowedSets[i][j] = new Set(fullSet);
+	}
+}s
